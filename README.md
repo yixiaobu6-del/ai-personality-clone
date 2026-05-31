@@ -1,18 +1,17 @@
-# AI 思维克隆器
+# AI思维克隆器
 
-[![HTML](https://img.shields.io/badge/HTML-standalone-orange)]()
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-blue)]()
-[![Chinese](https://img.shields.io/badge/lang-中文-red)]()
+想让AI模仿某个人的思维方式？
+**15种人格克隆帮你实现。**
 
-AI 人格克隆配置工具，支持多种人格类型。
+[![HTML](https://img.shields.io/badge/打开即用-无需安装-orange)]()
 
-## 功能
+## AI不再"千篇一律"
 
-- **15 种人格**：乔布斯、塔勒布、马斯克等
+- **15种人格**：乔布斯/塔勒布/马斯克等
 - **多配置管理**：同时管理多份克隆配置
-- **配置共享**：复制代码 + 导入导出
+- **配置共享**：复制代码+导入导出
 - **对话测试**：实时体验不同人格
 
-## 使用
+## 怎么用
 
-打开 `clone_config.html` 即可使用。
+打开 `clone_config.html` → 选择人格 → 复制配置
