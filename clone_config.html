@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI思维克隆器 - 在线配置</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-5xl mx-auto p-4 md:p-6">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-bold mb-2">AI思维克隆器</h1>
+      <p class="text-gray-500">配置你的思维参数，生成AI分身系统提示词</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- 左侧：配置面板 -->
+      <div>
+        <div class="bg-white rounded-lg shadow p-6 mb-4">
+          <h2 class="font-bold text-lg mb-4"><i class="fa fa-user-circle text-blue-500"></i> 基础人格设定</h2>
+
+          <div class="mb-3">
+            <label class="block text-sm font-medium mb-1">人格类型</label>
+            <select id="personality" class="w-full border rounded px-3 py-2">
+              <option value="理性分析型">理性分析型 — 逻辑优先，数据驱动</option>
+              <option value="感性共情型">感性共情型 — 情感优先，人际敏感</option>
+              <option value="行动执行型">行动执行型 — 结果导向，简洁直接</option>
+              <option value="创意发散型">创意发散型 — 天马行空，跨界联想</option>
+              <option value="严谨审慎型">严谨审慎型 — 精益求精，注重细节</option>
+              <option value="幽默轻松型">幽默轻松型 — 风趣活泼，亲和力强</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="block text-sm font-medium mb-1">专业领域</label>
+            <select id="domain" class="w-full border rounded px-3 py-2">
+              <option value="产品经理">产品经理</option>
+              <option value="程序员/工程师">程序员/工程师</option>
+              <option value="设计师">设计师</option>
+              <option value="创业者">创业者</option>
+              <option value="内容创作者">内容创作者</option>
+              <option value="管理者">管理者</option>
+              <option value="顾问/咨询">顾问/咨询</option>
+              <option value="学者/研究员">学者/研究员</option>
+              <option value="自由职业">自由职业</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="block text-sm font-medium mb-1">沟通风格</label>
+            <select id="style" class="w-full border rounded px-3 py-2">
+              <option value="简洁直接">简洁直接 — 三句话说完重点</option>
+              <option value="详细展开">详细展开 — 背景到结论都讲清楚</option>
+              <option value="结构化">结构化 — 分点列条，逻辑清晰</option>
+              <option value="故事化">故事化 — 用故事和类比表达</option>
+              <option value="数据驱动">数据驱动 — 用数据和事实说话</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-4">
+          <h2 class="font-bold text-lg mb-4"><i class="fa fa-sliders text-purple-500"></i> 思维参数微调</h2>
+
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>风险偏好</span>
+                <span id="riskVal" class="text-blue-600 font-medium">50</span>
+              </div>
+              <input type="range" min="0" max="100" value="50" id="risk" oninput="sync()" class="w-full">
+              <div class="flex justify-between text-xs text-gray-400"><span>极度保守</span><span>极度冒险</span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>创新倾向</span>
+                <span id="innovateVal" class="text-blue-600 font-medium">60</span>
+              </div>
+              <input type="range" min="0" max="100" value="60" id="innovate" oninput="sync()" class="w-full">
+              <div class="flex justify-between text-xs text-gray-400"><span>遵循传统</span><span>颠覆创新</span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>感性程度</span>
+                <span id="emotionVal" class="text-blue-600 font-medium">40</span>
+              </div>
+              <input type="range" min="0" max="100" value="40" id="emotion" oninput="sync()" class="w-full">
+              <div class="flex justify-between text-xs text-gray-400"><span>绝对理性</span><span>情感充沛</span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>细节偏好</span>
+                <span id="detailVal" class="text-blue-600 font-medium">60</span>
+              </div>
+              <input type="range" min="0" max="100" value="60" id="detail" oninput="sync()" class="w-full">
+              <div class="flex justify-between text-xs text-gray-400"><span>大局观</span><span>极致细节</span></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm">
+                <span>执行力</span>
+                <span id="actionVal" class="text-blue-600 font-medium">70</span>
+              </div>
+              <input type="range" min="0" max="100" value="70" id="action" oninput="sync()" class="w-full">
+              <div class="flex justify-between text-xs text-gray-400"><span>思考型</span><span>行动型</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-4">
+          <h2 class="font-bold text-lg mb-4"><i class="fa fa-book text-green-500"></i> 价值观与原则</h2>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2"><input type="checkbox" id="v1" checked> <span class="text-sm">用户至上 — 一切以用户价值为导向</span></label>
+            <label class="flex items-center gap-2"><input type="checkbox" id="v2" checked> <span class="text-sm">数据驱动 — 基于数据做决策</span></label>
+            <label class="flex items-center gap-2"><input type="checkbox" id="v3"> <span class="text-sm">简洁至上 — 能用一句话说清就不用三段</span></label>
+            <label class="flex items-center gap-2"><input type="checkbox" id="v4"> <span class="text-sm">持续迭代 — 先完善再完美</span></label>
+            <label class="flex items-center gap-2"><input type="checkbox" id="v5"> <span class="text-sm">透明诚实 — 不知道就说不知道</span></label>
+            <label class="flex items-center gap-2"><input type="checkbox" id="v6" checked> <span class="text-sm">结果导向 — 关注产出和价值</span></label>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 mb-4">
+          <h2 class="font-bold text-lg mb-4"><i class="fa fa-save text-orange-500"></i> 配置管理</h2>
+          <div class="flex gap-2 mb-3">
+            <input type="text" id="configName" class="flex-1 border rounded px-3 py-2" placeholder="输入配置名称保存...">
+            <button onclick="saveAsConfig()" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">
+              <i class="fa fa-save"></i> 保存配置
+            </button>
+          </div>
+          <div id="configList" class="space-y-2">
+            <!-- 配置列表将动态生成 -->
+          </div>
+        </div>
+
+        <button onclick="generate()" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 w-full text-lg font-bold">
+          <i class="fa fa-magic"></i> 生成AI分身
+        </button>
+      </div>
+
+      <!-- 右侧：输出面板 -->
+      <div class="lg:sticky lg:top-6">
+        <div class="bg-white rounded-lg shadow p-6 mb-4">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="font-bold text-lg"><i class="fa fa-robot text-indigo-500"></i> AI分身系统提示词</h2>
+            <button onclick="copyOutput()" class="text-blue-500 text-sm hover:underline"><i class="fa fa-copy"></i> 复制</button>
+          </div>
+          <pre id="output" class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto whitespace-pre-wrap min-h-[400px]">点击「生成AI分身」生成系统提示词</pre>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex justify-between items-center mb-2">
+            <h2 class="font-bold"><i class="fa fa-comment-o text-yellow-500"></i> 对话预览</h2>
+            <span id="cloneName" class="text-sm text-gray-500"></span>
+          </div>
+          <div id="preview" class="text-gray-500 text-sm py-4">生成后自动显示对话风格预览</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function sync() {
+      document.getElementById('riskVal').textContent = document.getElementById('risk').value;
+      document.getElementById('innovateVal').textContent = document.getElementById('innovate').value;
+      document.getElementById('emotionVal').textContent = document.getElementById('emotion').value;
+      document.getElementById('detailVal').textContent = document.getElementById('detail').value;
+      document.getElementById('actionVal').textContent = document.getElementById('action').value;
+    }
+
+    const responses = {
+      '理性分析型': {
+        style: '冷静、客观、理性',
+        answer: '根据现有数据，这个问题可以从三个角度分析。首先看核心指标...',
+        sample: '这个问题需要先定义关键变量。从数据来看，我们面临三个约束条件...'
+      },
+      '感性共情型': {
+        style: '温暖、共情、关怀',
+        answer: '我完全理解你的感受。在这种情况下，很多人都会有同样的困惑...',
+        sample: '听到你这样说，我能感受到你内心的挣扎。其实大多数人在面对这个选择时都会...'
+      },
+      '行动执行型': {
+        style: '简洁、直接、务实',
+        answer: '三步走：第一确认目标，第二分配资源，第三执行。下周看结果。',
+        sample: '别想太多，先做再说。我的建议是：今天列出前3件最重要的事...'
+      },
+      '创意发散型': {
+        style: '跳脱、联想、创新',
+        answer: '等等，让我们换个角度看。如果把这个问题和XX行业的问题结合起来...',
+        sample: '有意思！这让我想起了一个完全不同的领域——你有没有发现这跟XX有异曲同工之处...'
+      },
+      '严谨审慎型': {
+        style: '细致、周全、审慎',
+        answer: '在做出判断之前，我们需要确认以下几个前提条件是否成立...',
+        sample: '让我先检查一下前提。首先，我们假设的数据来源是否可靠？其次，样本量是否足够？...'
+      },
+      '幽默轻松型': {
+        style: '风趣、活泼、亲切',
+        answer: '这个问题嘛...说难不难，说简单也不简单，就像追女朋友一样（开个玩笑）...',
+        sample: '哈哈，这个问题让我想起了上周的一个段子。不过说正经的...'
+      }
+    };
+
+    const valuesText = {
+      v1: '用户至上',
+      v2: '数据驱动',
+      v3: '简洁至上',
+      v4: '持续迭代',
+      v5: '透明诚实',
+      v6: '结果导向'
+    };
+
+    function generate() {
+      const personality = document.getElementById('personality').value;
+      const domain = document.getElementById('domain').value;
+      const style = document.getElementById('style').value;
+      const risk = document.getElementById('risk').value;
+      const innovate = document.getElementById('innovate').value;
+      const emotion = document.getElementById('emotion').value;
+      const detail = document.getElementById('detail').value;
+      const action = document.getElementById('action').value;
+
+      const selectedValues = Object.keys(valuesText).filter(k => document.getElementById(k).checked).map(k => valuesText[k]);
+
+      const profile = responses[personality] || responses['理性分析型'];
+
+      const riskLevel = risk < 30 ? '极度保守' : risk < 60 ? '适中' : risk < 80 ? '偏冒险' : '极度冒险';
+      const innovateLevel = innovate < 30 ? '遵循传统' : innovate < 60 ? '适中' : innovate < 80 ? '偏创新' : '颠覆性创新';
+
+      const output = `# AI思维克隆 — 系统设定
+
+## 人格档案
+- **人格类型**: ${personality}
+- **专业领域**: ${domain}
+- **沟通风格**: ${style}
+
+## 思维参数
+- 风险偏好: ${risk} (${riskLevel})
+- 创新倾向: ${innovate} (${innovateLevel})
+- 感性程度: ${emotion}
+- 细节偏好: ${detail}
+- 执行力: ${action}
+
+## 核心原则
+${selectedValues.map(v => `- ${v}`).join('\n')}
+
+## 系统提示词
+
+      document.getElementById('output').textContent = output;
+      document.getElementById('cloneName').textContent = `${personality} · ${domain}`;
+
+      const preview = document.getElementById('preview');
+      preview.innerHTML = `
+        <div class="space-y-3">
+          <div class="bg-blue-50 p-3 rounded-lg">
+            <p class="text-xs text-blue-500 mb-1">你问：</p>
+            <p class="text-sm">这个方案有什么风险？我应该怎么选择？</p>
+          </div>
+          <div class="bg-gray-50 p-3 rounded-lg">
+            <p class="text-xs text-green-500 mb-1">AI分身回答：</p>
+            <p class="text-sm">${profile.answer}</p>
+          </div>
+          <div class="mt-4 p-3 bg-purple-50 rounded-lg">
+            <p class="text-xs text-purple-500 mb-1">风格特征：${profile.style}</p>
+            <p class="text-sm mt-2">${profile.sample}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function copyOutput() {
+      const text = document.getElementById('output').textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => alert('系统提示词已复制')).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('系统提示词已复制');
+    }
+
+    // localStorage多套配置管理
+    const configListKey = 'ai_clone_config_list';
+    const currentConfigKey = 'ai_clone_current_config';
+
+    function getConfigList() {
+      return JSON.parse(localStorage.getItem(configListKey) || '[]');
+    }
+
+    function saveConfigList(list) {
+      localStorage.setItem(configListKey, JSON.stringify(list));
+    }
+
+    function getCurrentConfigName() {
+      return localStorage.getItem(currentConfigKey) || '';
+    }
+
+    function setCurrentConfigName(name) {
+      localStorage.setItem(currentConfigKey, name);
+    }
+
+    function getConfig(name) {
+      const list = getConfigList();
+      return list.find(c => c.name === name);
+    }
+
+    function saveAsConfig() {
+      const name = document.getElementById('configName').value.trim();
+      if (!name) {
+        alert('请输入配置名称');
+        return;
+      }
+
+      const config = {
+        name: name,
+        personality: document.getElementById('personality').value,
+        domain: document.getElementById('domain').value,
+        style: document.getElementById('style').value,
+        risk: document.getElementById('risk').value,
+        innovate: document.getElementById('innovate').value,
+        emotion: document.getElementById('emotion').value,
+        detail: document.getElementById('detail').value,
+        action: document.getElementById('action').value,
+        values: Object.keys(valuesText).filter(k => document.getElementById(k).checked),
+        time: new Date().toISOString()
+      };
+
+      const list = getConfigList();
+      const existingIndex = list.findIndex(c => c.name === name);
+      if (existingIndex >= 0) {
+        list[existingIndex] = config;
+        alert('配置已更新: ' + name);
+      } else {
+        list.push(config);
+        alert('配置已保存: ' + name);
+      }
+
+      saveConfigList(list);
+      setCurrentConfigName(name);
+      renderConfigList();
+    }
+
+    function loadNamedConfig(name) {
+      const config = getConfig(name);
+      if (!config) return;
+
+      setCurrentConfigName(name);
+      document.getElementById('configName').value = name;
+
+      if (config.personality) document.getElementById('personality').value = config.personality;
+      if (config.domain) document.getElementById('domain').value = config.domain;
+      if (config.style) document.getElementById('style').value = config.style;
+      if (config.risk) document.getElementById('risk').value = config.risk;
+      if (config.innovate) document.getElementById('innovate').value = config.innovate;
+      if (config.emotion) document.getElementById('emotion').value = config.emotion;
+      if (config.detail) document.getElementById('detail').value = config.detail;
+      if (config.action) document.getElementById('action').value = config.action;
+
+      // 先清空所有checkbox
+      Object.keys(valuesText).forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.checked = false;
+      });
+      // 再设置选中的
+      if (config.values) config.values.forEach(k => {
+        const el = document.getElementById(k);
+        if (el) el.checked = true;
+      });
+
+      sync();
+      generate();
+      renderConfigList();
+    }
+
+    function deleteConfig(name) {
+      if (!confirm('确定删除配置 "' + name + '" ？')) return;
+
+      const list = getConfigList().filter(c => c.name !== name);
+      saveConfigList(list);
+
+      if (getCurrentConfigName() === name) {
+        setCurrentConfigName('');
+        document.getElementById('configName').value = '';
+      }
+
+      renderConfigList();
+    }
+
+    function renderConfigList() {
+      const list = getConfigList();
+      const currentName = getCurrentConfigName();
+      const container = document.getElementById('configList');
+
+      if (list.length === 0) {
+        container.innerHTML = '<div class="text-gray-400 text-sm py-2 text-center">暂无保存的配置</div>';
+        return;
+      }
+
+      container.innerHTML = list.map(c => `
+        <div class="flex items-center justify-between p-2 rounded ${c.name === currentName ? 'bg-orange-100 border border-orange-300' : 'bg-gray-50'}">
+          <div class="flex items-center gap-2">
+            <span class="font-medium text-sm">${c.name}</span>
+            <span class="text-xs text-gray-400">${c.personality} · ${c.domain}</span>
+          </div>
+          <div class="flex gap-1">
+            <button onclick="loadNamedConfig('${c.name}')" class="text-blue-500 hover:text-blue-700 text-xs px-2 py-1">
+              <i class="fa fa-check"></i> 加载
+            </button>
+            <button onclick="deleteConfig('${c.name}')" class="text-red-500 hover:text-red-700 text-xs px-2 py-1">
+              <i class="fa fa-trash"></i> 删除
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 自动保存当前配置（不改变名称）
+    function saveCurrentValues() {
+      const currentName = getCurrentConfigName();
+      if (!currentName) return;
+
+      const config = getConfig(currentName);
+      if (!config) return;
+
+      config.personality = document.getElementById('personality').value;
+      config.domain = document.getElementById('domain').value;
+      config.style = document.getElementById('style').value;
+      config.risk = document.getElementById('risk').value;
+      config.innovate = document.getElementById('innovate').value;
+      config.emotion = document.getElementById('emotion').value;
+      config.detail = document.getElementById('detail').value;
+      config.action = document.getElementById('action').value;
+      config.values = Object.keys(valuesText).filter(k => document.getElementById(k).checked);
+
+      const list = getConfigList();
+      const index = list.findIndex(c => c.name === currentName);
+      if (index >= 0) {
+        list[index] = config;
+        saveConfigList(list);
+      }
+    }
+
+    // 自动保存（仅当有当前配置时）
+    document.querySelectorAll('select, input[type="range"]').forEach(el => el.addEventListener('change', () => { saveCurrentValues(); generate(); }));
+    document.querySelectorAll('input[type="checkbox"]').forEach(el => el.addEventListener('change', () => { saveCurrentValues(); generate(); }));
+
+    // 初始化加载
+    renderConfigList();
+    const currentName = getCurrentConfigName();
+    if (currentName) {
+      loadNamedConfig(currentName);
+    } else {
+      sync();
+      generate();
+    }
+  </script>
+</body>
+</html>
